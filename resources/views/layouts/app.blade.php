@@ -16,7 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('styles')
@@ -78,6 +78,7 @@
         </nav>
 
         <main class="py-4">
+            <div id="notifications" class="alert alert-danger mx-3 invisible"></div>
             @yield('content')
         </main>
     </div>

@@ -19,4 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', "HomeController@index")->name('home');
+
+Route::view("/users","users.show_all")->name("users.all");
+
+Route::view("/game","game.show")->name("game.show");
+
+Route::get("/chat","ChatController@showChat")->name("chat.show");

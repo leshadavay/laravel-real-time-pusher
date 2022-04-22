@@ -12,7 +12,22 @@ use Illuminate\Support\Facades\Broadcast;
 | used to check if an authenticated user can listen to the channel.
 |
 */
-
+//${id} comes from parameter on the name of channel
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
+});
+
+//in case only authenticated user
+Broadcast::channel('notifications', function ($user) {
+    return $user != null;
+});
+
+Broadcast::channel('asd', function ($user) {
+    if($user!=null){
+        return [
+            'id'    =>  $user->id,
+            'name'  =>  $user->name
+        ];
+    }
+
 });
