@@ -66,7 +66,7 @@
 
         Echo.join('chat')
         .here((users)=>{
-            console.log('here: ',users)
+            //console.log('here: ',users)
             users.forEach((user,index) =>{
                 usersElement.append(`<li id="${user.id}" onclick="chatWithUser('${user.id}')"> ${user.name} </li>`)
             })
@@ -78,7 +78,7 @@
             $(`#${user.id}`)?.remove();
         })
         .listen('MessageSent',(event)=>{
-            console.log('event: ',event)
+            //console.log('event: ',event)
             messagesElement.append(`<li> ${event.user.name}: ${event.message} </li>`)
         })
 

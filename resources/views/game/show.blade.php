@@ -64,7 +64,7 @@
 
     Echo.channel('game')
         .listen("RemainingTimeChanged",(event)=>{
-            console.log('RemainingTimeChanged: ',event)
+
             timer.text(event.time)
             circle.addClass("refresh")
             winner.addClass("d-none")
