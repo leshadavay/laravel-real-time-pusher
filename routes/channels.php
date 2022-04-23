@@ -22,12 +22,16 @@ Broadcast::channel('notifications', function ($user) {
     return $user != null;
 });
 
-Broadcast::channel('asd', function ($user) {
+Broadcast::channel('chat', function ($user) {
     if($user!=null){
         return [
             'id'    =>  $user->id,
             'name'  =>  $user->name
         ];
     }
+});
 
+//chat with specific user
+Broadcast::channel('chat.with.{receiver}', function ($user,$receiver) {
+    return (int) $user->id === (int) $receiver;
 });

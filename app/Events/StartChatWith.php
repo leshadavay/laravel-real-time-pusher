@@ -13,11 +13,11 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
-class MessageSent implements ShouldBroadcast
+class StartChatWith implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $user;
+    protected $user;
     public $message;
 
 
@@ -42,6 +42,6 @@ class MessageSent implements ShouldBroadcast
         //use Channel class for public user
 
         //Log::debug("message sent {$this->message}");
-        return new PresenceChannel('chat');
+        return new PrivateChannel("chat.with.{$this->user->id}");
     }
 }
